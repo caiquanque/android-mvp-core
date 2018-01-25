@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId rootProject.ext.appId
+        minSdkVersion rootProject.ext.defaultMinSdkVersion
+        targetSdkVersion rootProject.ext.defaultTargetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile rootProject.ext.libraries.android_support_v7
+    compile rootProject.ext.libraries.android_support_design
+    compile rootProject.ext.libraries.android_support_rclrv
+    compile rootProject.ext.libraries.butterknife
+    compile rootProject.ext.libraries.annotationProcessor
+    compile rootProject.ext.libraries.icepick
+    compile rootProject.ext.libraries.retrofit
+    compile rootProject.ext.libraries.rxandroid
+    compile rootProject.ext.libraries.rxjava
+    compile rootProject.ext.libraries.timber
+    //compile rootProject.ext.libraries.icepick_processor
+    compile 'com.google.dagger:dagger-android-support:2.11-rc2'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11-rc2'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.11-rc2'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+
+}

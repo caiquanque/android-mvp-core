@@ -1,0 +1,64 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+ext {
+    buildToolsVersion = "26.0.1"
+    compileSdkVersion = 26
+    defaultMinSdkVersion = 19
+    defaultTargetSdkVersion = 25
+    appId = "com.sutrix.android_mvp_core"
+    versionCode = 1
+    versionName = "1.0"
+    // LIB
+    android_support_version = "25.3.1"
+    android_support_design_version = "25.3.1"
+    butterknife_version = "8.7.0"
+    dagger_version = "2.0.1"
+    icepick_version = "3.2.0"
+    retrofit_version = "2.3.0"
+    rxandroid_version = "2.0.1"
+    rxjava_version = "2.1.0"
+    timber_version = "4.5.1"
+    dagger_version = "2.11-rc2"
+}
+
+ext.libraries = [
+        android_support       : "com.android.support:support-v4:$android_support_version",
+        android_support_v7    : "com.android.support:appcompat-v7:$android_support_version",
+        android_support_design: "com.android.support:design:$android_support_design_version",
+        android_support_rclrv : "com.android.support:recyclerview-v7:$android_support_version",
+        butterknife           : "com.jakewharton:butterknife:$butterknife_version",
+        annotationProcessor   : "com.jakewharton:butterknife-compiler:$butterknife_version",
+        icepick               : "frankiesardo:icepick:$icepick_version",
+        retrofit              : "com.squareup.retrofit2:retrofit:$retrofit_version",
+        rxandroid             : "io.reactivex.rxjava2:rxandroid:$rxandroid_version",
+        rxjava                : "io.reactivex.rxjava2:rxjava:$rxjava_version",
+        timber                : "com.jakewharton.timber:timber:$timber_version",
+        icepick_processor     : "frankiesardo:icepick-processor:$icepick_version",
+        dagger                : "com.google.dagger:dagger-android-support: $dagger_version",
+        dagger_compiler       : "com.google.dagger:dagger-compiler: $dagger_version",
+        dagger_processor      : "com.google.dagger:dagger-android-processor: $dagger_version",
+
+]
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.7.0'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url "https://clojars.org/repo/" }
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
