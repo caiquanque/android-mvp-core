@@ -4,6 +4,8 @@ import core.model.BaseModel;
 
 /**
  * Created by luantruong on 7/12/17.
+ *
+ * Sign in DTTHONG
  */
 
 public class LoginModel extends BaseModel {
